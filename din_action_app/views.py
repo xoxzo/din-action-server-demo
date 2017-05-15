@@ -3,6 +3,6 @@ from django.http import HttpResponse
 
 
 def din_action(request):
-    caller = request.GET['caller']
-    recipient = request.GET['recipient']
+    caller = request.GET.get('caller',None)
+    recipient = request.GET.get('recipient',None)
     return HttpResponse("Hello, world. You're at the DIN Action index.")
