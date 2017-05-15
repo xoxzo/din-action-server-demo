@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 
-# Create your views here.
-def index(request):
+def din_action(request):
+    caller = request.GET['caller']
+    recipient = request.GET['recipient']
     return HttpResponse("Hello, world. You're at the DIN Action index.")
