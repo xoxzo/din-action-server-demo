@@ -5,6 +5,16 @@
   <title>XOXZO DIN Action</title>
 </head>
 <body>
-Hello, this is XOXZO DIN action page
+<h1 style="text-align: center">XOXZO DIN Action</h1>
+<br>
+{% if actions %}
+    <ul>
+    {% for action in actions %}
+        <li>{{ action.action_text }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No Actions are available.</p>
+{% endif %}
 </body>
 </html>

@@ -1,11 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.template import loader
+from .models import DinAction
 
 
 def index(request):
-    template = loader.get_template('din_action/index.html')
-    return HttpResponse(template.render(request))
+    #DinAction(action_text='playback http://anonaka.github.io/100baigaeshi.mp3').save()
+    actions = DinAction.objects.all()
+
+    context = {'actions': actions}
+    return render(request, 'din_action/index.html', context)
+
 
 def din_action(request):
     caller = request.GET.get('caller',None)
