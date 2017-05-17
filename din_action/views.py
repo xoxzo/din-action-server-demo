@@ -1,24 +1,30 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import DinAction
+
+g_action_id = 1
 
 
 def index(request):
-    #DinAction(action_text='playback http://anonaka.github.io/100baigaeshi.mp3').save()
+    global g_action_id
     actions = DinAction.objects.all()
-
-    context = {'actions': actions}
+    context = {'actions': actions, 'selected_id': int(g_action_id) - 1}
     return render(request, 'din_action/index.html', context)
 
 
+def select_action(request):
+    global g_action_id
+    g_action_id = request.POST['action_id']
+    return HttpResponseRedirect("/din-action/index")
+
+
 def din_action(request):
+    global g_action_id
     caller = request.GET.get('caller',None)
     recipient = request.GET.get('recipient',None)
-
-    mp3_file = "http://anonaka.github.io/100baigaeshi.mp3"
-    action_str = "playback %s" % mp3_file
-
+    action = DinAction.objects.get(id=g_action_id)
+    action_text = action.action_text
     print("Caller: ",caller)
     print("Recipient: ",recipient)
-    print("Action: ",action_str)
-    return HttpResponse(action_str)
+    print("Action: ", action_text)
+    return HttpResponse(action_text)

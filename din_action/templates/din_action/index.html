@@ -7,14 +7,24 @@
 <body>
 <h1 style="text-align: center">XOXZO DIN Action</h1>
 <br>
-{% if actions %}
-    <ul>
-    {% for action in actions %}
-        <li>{{ action.action_text }}</li>
-    {% endfor %}
-    </ul>
-{% else %}
+<form action="{% url 'select_action' %}" method="post">
+  {% if actions %}
+    <select name="action_id">
+
+      {% for action in actions %}
+        {%  if forloop.counter0 == selected_id %}
+          <option value="{{action.id}}" selected><h2>{{action.action_text}}</h2></option>
+        {% else %}
+          <option value="{{action.id}}"><h2>{{action.action_text}}</h2></option>
+        {%  endif %}
+      {% endfor %}
+
+    </select>
+  {% else %}
     <p>No Actions are available.</p>
-{% endif %}
+  {% endif %}
+  <input type="submit" value="Set" />
+  {% csrf_token %}
+</form>
 </body>
 </html>
