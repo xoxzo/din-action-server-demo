@@ -11,7 +11,7 @@
 <br>
 <form action="{% url 'select_action' %}" method="post" style="text-align: center">
   {% if actions %}
-    <select name="action_id" style="font-size: x-large">
+    <select name="action_id" style="border-style: groove;font-size: x-large">
       {% for action in actions %}
         {%  if forloop.counter0 == selected_id %}
           <option value="{{action.id}}" selected>{{action.action_text}}</option>
