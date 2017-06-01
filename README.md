@@ -9,9 +9,7 @@ This GET request has two parameters, recipient and caller.
 
 In response to this request, the action server must return the action that you want XOXZO cloud to take,
 playback, transfer or say. Action is in plain text.
-
 This app will accept DIN action requests and return acton text.
-
 This app has GUI that user can choose the action to take with pull down menu.
 
 ## How to install
@@ -35,3 +33,11 @@ In oder to run this app, you use dinago `manage` command.
     
     python manage.py runserver
 
+## ToDo
+
++ Edit action GUI
++ Change behaviour according to the GET parameters
++ Show access logs
++ Enhance GUI design, look
+
+We appreciate your contribution.
