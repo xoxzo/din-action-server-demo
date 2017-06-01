@@ -21,10 +21,16 @@ Pleas install django if it is not installed yet.
 
     pip install django
 
-For details about django, please reafer [this site.](https://www.djangoproject.com)
+For details about django, please refer [this site.](https://www.djangoproject.com)
 
 ## How to run
 
+Currently, sample actions are stared in database.
+You have to insert actions into the database in advance.
+Run this shell script it insert default actions into the database.
+
+    sh init_database.sh
+    
 In oder to run this app, you use dinago `manage` command.
     
     python manage.py runserver
