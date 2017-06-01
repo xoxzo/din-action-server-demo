@@ -6,6 +6,7 @@ This is a sample web application for XOXZO DIN (dial in number) action server.
 Assume you subscribe a DIN and set action url for the DIN phone number, when your number
 get a call, XOXZO cloud will call the action url with the HTTP GET request.
 This GET request has two parameters, `recipient` and `caller`. 
+For details about DIN, please refer [this page.](http://docs.xoxzo.com/en/din.html)
 
 In response to this request, the action server must return the action that you want XOXZO cloud to take,
 playback, transfer or say. Action is in the plain text.
