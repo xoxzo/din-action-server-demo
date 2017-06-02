@@ -10,13 +10,13 @@ For details about DIN, please refer [this page.](http://docs.xoxzo.com/en/din.ht
 
 In response to this request, the action server must return the action that you want XOXZO cloud to take,
 playback, transfer or say. Action is in the plain text.
-This app will accept DIN action requests and return the acton text.
+This app will accept DIN action requests and return the action text.
 This app has GUI that the user can choose the action to take with the pull down menu.
 
 ## How to install
 
 This app is written in django framework. You must install django to run this app.
-Pleas install django if it is not installed yet.
+Please install django if it is not installed yet.
 
     pip install django
 
@@ -24,13 +24,13 @@ For details about django, please refer [this site.](https://www.djangoproject.co
 
 ## How to run
 
-Currently, sample actions are stared in the database.
+Currently, sample actions are stored in the database.
 You have to insert the actions into the database in advance.
 Run this shell script to insert default actions into the database.
 
     sh init_database.sh
     
-In oder to run this app, you use dinago `manage` command.
+In order to run this app, you use django `manage` command.
     
     python manage.py runserver
 
